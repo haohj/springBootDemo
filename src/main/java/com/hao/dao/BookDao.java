@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * @author Administrator
+ * 继承JpaRepository可以实现图书基本的增删改查
+ * 继承JpaSpecificationExecutor用于实现图书的动态查询
  */
 public interface BookDao extends JpaRepository<Book, Integer>, JpaSpecificationExecutor<Book> {
 

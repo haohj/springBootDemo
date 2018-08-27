@@ -2,6 +2,10 @@ package com.hao.entity;
 
 import javax.persistence.*;
 
+/**
+ * 图书实体
+ * 用于图书的增删改查案例
+ */
 @Entity
 @Table(name = "t_book")
 public class Book {
