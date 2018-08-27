@@ -1,0 +1,25 @@
+server:
+  port: 80
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8
+    username: root
+    password: mysql
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+#自定义配置
+mysql:
+  jdbcName: com.mysql.jdbc.Driver
+  dbUrl: jdbc:mysql://localhost:3306/test
+  userName: root
+  password: mysql
+
+helloworld: hello springboot
