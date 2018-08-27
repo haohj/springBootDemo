@@ -21,6 +21,7 @@ public class RequestAspect {
 
     @Before("log()")
     public void doBefore(JoinPoint joinPoint) {
+        System.out.println("############################################################################################################################################################");
         logger.info("方法执行前...");
         ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = sra.getRequest();
@@ -42,6 +43,7 @@ public class RequestAspect {
     @AfterReturning(returning = "result", pointcut = "log()")
     public void doAfterReturning(Object result) {
         logger.info("方法返回值：" + result);
+        System.out.println("############################################################################################################################################################");
     }
 
 }
