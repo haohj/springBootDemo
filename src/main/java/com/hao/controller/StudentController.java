@@ -5,6 +5,7 @@ import com.hao.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -32,6 +33,7 @@ public class StudentController {
      * @param bindingResult
      * @return
      */
+    @ResponseBody
     @RequestMapping("/add")
     public String add(@Valid Student student, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){
