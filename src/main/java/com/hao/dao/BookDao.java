@@ -11,9 +11,9 @@ import java.util.List;
  */
 public interface BookDao extends JpaRepository<Book, Integer> {
 
-    @Query("")
+    @Query("select b from t_book b where b.book_name like '%?1%'")
     public List<Book> findByName(String bookName);
 
-    @Query("")
+    @Query(value = "select * from t_book order by rand() limit ?1", nativeQuery = true)
     public List<Book> randomList(Integer n);
 }
