@@ -34,11 +34,11 @@ public class StudentController {
      */
     @RequestMapping("/add")
     public String add(@Valid Student student, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
+        if(bindingResult.hasErrors()){
             return bindingResult.getFieldError().getDefaultMessage();
-        } else {
+        }else{
             studentService.add(student);
-            return null;
+            return "添加成功";
         }
     }
 }
