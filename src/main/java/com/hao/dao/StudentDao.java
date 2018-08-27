@@ -1,4 +1,7 @@
 package com.hao.dao;
 
-public interface StudentDao {
+import com.hao.entity.Student;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface StudentDao extends JpaRepository<Student, Integer> {
 }
