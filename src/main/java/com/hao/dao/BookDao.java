@@ -10,11 +10,21 @@ import java.util.List;
 /**
  * @author Administrator
  */
-public interface BookDao extends JpaRepository<Book, Integer> , JpaSpecificationExecutor<Book> {
+public interface BookDao extends JpaRepository<Book, Integer>, JpaSpecificationExecutor<Book> {
 
-    @Query("select b from t_book b where b.book_name like '%?1%'")
+    /**
+     * 使用HQL查询
+     *
+     * @param bookName
+     */
+    @Query("select b from Book b where b.bookName like '%?1%'")
     public List<Book> findByName(String bookName);
 
+    /**
+     * 使用原生SQL查询
+     *
+     * @param n
+     */
     @Query(value = "select * from t_book order by rand() limit ?1", nativeQuery = true)
     public List<Book> randomList(Integer n);
 

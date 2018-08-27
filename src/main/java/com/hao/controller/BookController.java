@@ -40,6 +40,7 @@ public class BookController {
      * @param book
      * @return
      */
+    @RequestMapping("/list2")
     public ModelAndView bookList2(Book book) {
         ModelAndView mv = new ModelAndView();
 
@@ -84,18 +85,11 @@ public class BookController {
      * @param id
      * @return
      */
-    @RequestMapping("/preUpdate/{id}")
+    @RequestMapping("preUpdate/{id}")
     public ModelAndView preUpdate(@PathVariable(value = "id") Integer id) {
         ModelAndView mv = new ModelAndView();
-        if (id == null) {
-            mv.addObject("errMsg", "id为空！");
-            mv.setViewName("error");
-        } else {
-            Book book = bookDao.getOne(id);
-            mv.addObject("book", book);
-            mv.setViewName("bookUpdate");
-        }
-
+        mv.addObject("book", bookDao.getOne(id));
+        mv.setViewName("bookUpdate");
         return mv;
     }
 
@@ -133,7 +127,7 @@ public class BookController {
     @RequestMapping("/queryByBookName")
     public ModelAndView queryByBookName(String bookName) {
         ModelAndView mv = new ModelAndView();
-        mv.addObject("bookList", bookDao.findAll());
+        mv.addObject("bookList", bookDao.findByName(bookName));
         mv.setViewName("bookList");
         return mv;
     }

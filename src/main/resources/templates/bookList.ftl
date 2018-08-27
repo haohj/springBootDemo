@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>图书列表页面</title>
+    <title>图书管理</title>
 </head>
 <body>
-<a href="/bookAdd.html">添加</a>
+<a href="/bookAdd.html">添加</a><br/>
+<form method="post" action="/book/list2">
+    图书名称：<input type="text" name="bookName" />&nbsp;
+    图书作者：<input type="text" name="author" />&nbsp;
+    <input type="submit" value="搜索"/>
+</form>
 <table>
     <tr>
         <th>编号</th>
@@ -25,6 +30,5 @@
         </tr>
     </#list>
 </table>
-
 </body>
 </html>
